@@ -30,7 +30,7 @@ export function Hero() {
           </div>
           <div>
             <IconWrapper variant="coffee">
-            <Coffee size={16} weight="fill" />
+              <Coffee size={16} weight="fill" />
             </IconWrapper>
             <p>O café chega fresquinho até você</p>
           </div>

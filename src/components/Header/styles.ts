@@ -43,6 +43,8 @@ export const HeaderContent = styled.div`
         justify-content: center;
         align-items: center;
         border-radius: 8px;
+        cursor: pointer;
+
 
           a {
             color: ${props => props.theme["yellow-dark"]};
