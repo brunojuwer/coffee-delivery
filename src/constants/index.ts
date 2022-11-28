@@ -110,7 +110,7 @@ export const cards = [
     id: "cubano",
     icon: cubano,
     tags: ["ESPECIAL", "ALCOÓLICO", "GELADO"],
-    title: "cubano",
+    title: "Cubano",
     content:
       "Drink gelado de café expresso com rum, creme de leite e hortelã",
     price: 9.99

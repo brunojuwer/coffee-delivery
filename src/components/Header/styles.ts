@@ -9,6 +9,12 @@ export const HeaderContainer = styled.header`
 `
 
 export const HeaderContent = styled.div`
+  max-width: 70rem;
+  width: 100%;
+  padding: 2rem 0;
+
+  position: fixed;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;

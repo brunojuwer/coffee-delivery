@@ -4,6 +4,6 @@ export const LayoutContainer = styled.div`
   max-width: 90rem;
   width: 100%;
   margin: 0 auto;
-  box-shadow: 0 0 20px 2px ${props => props.theme["purple-light"]};
+  box-shadow: inset 0px 0px 123px -88px #B57BD1
 
 `

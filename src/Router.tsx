@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import { Checkout } from './components/Checkout'
 import { Home } from './components/Home'
 import { DefaultLayout } from './layouts/DefaultLayout'
 
@@ -7,7 +8,7 @@ export function Router(){
     <Routes>
       <Route path="/" element={<DefaultLayout />} >
         <Route path="/" element={<Home />} />
-        <Route path="/checkout" element={<div />}/> 
+        <Route path="/checkout" element={<Checkout />}/> 
       </Route>
     </Routes>
   )
