@@ -1,11 +1,11 @@
 import { Card } from "../Card";
 import { Hero } from "../Hero";
-import { CoffeesSection } from "./styles";
+import { CoffeesSection, HomeContainer } from "./styles";
 
 
 export function Home() {
   return (
-    <>
+    <HomeContainer>
       <Hero />
 
       <h2>Nossos cafés</h2>
@@ -13,6 +13,6 @@ export function Home() {
       <CoffeesSection>
         <Card />
       </CoffeesSection>
-    </>
+    </HomeContainer>
   )
 }

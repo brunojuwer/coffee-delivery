@@ -2,16 +2,12 @@ import styled, { css } from "styled-components";
 
 
 export const SectionContainer = styled.section`
+  margin-top: 9rem;
   display: grid;
   grid-template-columns: 50% 50%;
   gap: 20px;
 
   background: ${props => props.theme.background};
-
-  max-width: 72rem;
-  margin: 0 auto;
-  width: 100%;
-  margin-top: 9rem;
 `
 
 export const TextContainer = styled.div`
@@ -37,6 +33,10 @@ export const ImageContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 1110px) {
+    display: none;
+  }
 `
 
 export const AdvantagesContainer = styled.div`
