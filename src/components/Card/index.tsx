@@ -1,6 +1,7 @@
 import { CardContainer, CardsWrapper, TagContainer, AmountContainer } from "./styles";
 import { cards }  from '../../constants/'
-import { Minus, Plus, ShoppingCartSimple } from "phosphor-react";
+import { ShoppingCartSimple } from "phosphor-react";
+import { Counter } from "../Buttons/Counter";
 
 export function Card() {
   return (
@@ -16,11 +17,7 @@ export function Card() {
           <div>
             <span>R$ <strong>{card.price.toFixed(2)}</strong></span>
             <AmountContainer> 
-              <div>
-                <button><Minus size={16} weight="bold" /></button>
-                <span>1</span>
-                <button><Plus size={16} weight="bold" /></button>
-              </div>
+              <Counter />
               <div>
                 <ShoppingCartSimple size={22} weight="fill" color="#FFF"/>
               </div>

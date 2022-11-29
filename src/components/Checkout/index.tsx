@@ -11,8 +11,11 @@ import {
   Title 
 } from "./styles";
 
+import { Counter } from "../Buttons/Counter";
+import { RemoveButton } from "../Buttons/RemoveButton";
+
 import americano from '../../assets/coffee/americano.svg'
-import { SyntheticEvent } from "react";
+
 
 
 export function Checkout() {
@@ -84,7 +87,10 @@ export function Checkout() {
                 <img src={americano} alt="asd" />
                 <div>
                   <h4>Americano</h4>
-                  <div>Botao - e + | botao remover</div>
+                  <div>
+                    <Counter />
+                    <RemoveButton />
+                  </div>
 
                 </div>
               </li>

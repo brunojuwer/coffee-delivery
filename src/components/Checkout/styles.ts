@@ -142,6 +142,11 @@ export const PaymentSelector = styled.div`
     align-items: center;
     gap: 10px;
 
+    :has(input:checked)  {
+      border: solid 1px ${props => props.theme.purple};
+      background: ${props => props.theme["purple-light"]};
+    }
+
     &:hover {
       background: ${props => props.theme["base-hover"]};
     }
@@ -155,9 +160,6 @@ export const PaymentSelector = styled.div`
     }
 }
     
-  label:has(input:checked)  {
-      border: solid 1px ${props => props.theme.purple};
-      background: ${props => props.theme["purple-light"]};
-  }
+
 
 `
