@@ -10,11 +10,14 @@ export const CounterContainer = styled.div`
     color: ${props => props.theme["base-title"]};
     
     span {
-      font-size: 1.125rem;
-      padding: 0 0.1rem;
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
     }
     
     button {
+      display: flex;
+      align-items: center;
       cursor: pointer;
       border: none;
       color: ${props => props.theme["purple-dark"]};

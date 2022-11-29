@@ -19,6 +19,7 @@ import { Counter } from "../Buttons/Counter";
 import { RemoveButton } from "../Buttons/RemoveButton";
 
 import americano from '../../assets/coffee/americano.svg'
+import { NavLink } from "react-router-dom";
 
 
 
@@ -81,24 +82,24 @@ export function Checkout() {
             <ul>
               <li>
                 <img src={americano} alt="asd" />
-                <span>
+                <div>
                   <h4>Americano</h4>
                   <ButtonsContainer>
                     <Counter />
                     <RemoveButton />
                   </ButtonsContainer>
-                </span>
+                </div>
                 <p>R$ 9,90</p>      
               </li>
               <li>
                 <img src={americano} alt="asd" />
-                <span>
+                <div>
                   <h4>Americano</h4>
                   <ButtonsContainer>
                     <Counter />
                     <RemoveButton />
                   </ButtonsContainer>
-                </span>
+                </div>
                 <p>R$ 9,90</p>      
               </li>
             </ul>
@@ -115,9 +116,11 @@ export function Checkout() {
                 <h3>Total</h3>
                 <h3>R$ 33,20</h3>
               </div>
-              <button>
-                CONFIRMAR PEDIDO
-              </button>
+              <NavLink to={"/success"}>
+                <button>
+                  CONFIRMAR PEDIDO
+                </button>
+              </NavLink>
             </TotalValue>
           </SelectedCoffees>
 

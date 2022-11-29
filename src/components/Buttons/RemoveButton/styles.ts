@@ -12,10 +12,15 @@ export const ButtonContainer = styled.button`
   border-radius: 8px;
   justify-content: space-around;
   gap: 5px;
+  cursor: pointer;
 
   i {
     display: flex;
     align-items: center;
     color: ${props => props.theme["purple"]};
+  }
+
+  &:hover {
+    background: ${props => props.theme["base-hover"]};
   }
 `

@@ -191,9 +191,10 @@ export const SelectedCoffees = styled.div`
         height: 4rem;
       }
 
-      span {
-        margin-left: 1rem;
+      div {
+        
         h4 {
+          margin-left: 1rem;
           font-weight: 400;
           font-size: 1.25rem;
           color: ${props => props.theme["base-subtitle"]};
@@ -204,6 +205,7 @@ export const SelectedCoffees = styled.div`
   }
 `
 export const ButtonsContainer = styled.div`
+  margin-left: 1rem;
   max-width: 10.6875rem;
   width: 100%;
   margin-top: 5px;
@@ -228,6 +230,7 @@ export const TotalValue = styled.div`
   }
 
   button {
+    width: 100%;
     margin-top: 1rem;
     padding: 1rem;
     border: none;
@@ -236,5 +239,10 @@ export const TotalValue = styled.div`
     color: ${props => props.theme["white"]};
     font-weight: bold;
     font-size: 0.875rem;
+    cursor: pointer;
+
+    &:hover {
+      background: ${props => props.theme["yellow-dark"]};
+    }
   }
 `

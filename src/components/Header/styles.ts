@@ -43,7 +43,7 @@ export const HeaderContent = styled.div`
 
       div.cart-container {
         position: relative;
-        background: ${props => props.theme["yellow-light"]} ;
+        background: ${props => props.theme["yellow-light"]};
         width: 38px;
         display: flex;
         justify-content: center;
@@ -51,6 +51,9 @@ export const HeaderContent = styled.div`
         border-radius: 8px;
         cursor: pointer;
 
+        &:hover {
+          background: ${props => props.theme["yellow"]};
+        }
 
           a {
             color: ${props => props.theme["yellow-dark"]};
