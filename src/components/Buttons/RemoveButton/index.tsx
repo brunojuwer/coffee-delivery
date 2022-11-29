@@ -4,7 +4,8 @@ import { ButtonContainer } from "./styles";
 export function RemoveButton() {
   return (
     <ButtonContainer>
-      <Trash size={16} />
+      <i><Trash size={16} /></i>
+      REMOVER
     </ButtonContainer>
   )
 }

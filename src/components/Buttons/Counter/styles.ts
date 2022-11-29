@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const CounterContainer = styled.div`
+    height: 2rem;
     display: flex;
     align-items: center;
     background: ${props => props.theme["base-button"]};

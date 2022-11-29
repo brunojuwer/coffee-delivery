@@ -2,12 +2,15 @@ import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money }
   from "phosphor-react";
 
 import { 
+  ButtonsContainer,
   CheckoutContainer, 
   FormContainer, 
   InputContainer, 
   InputSection, 
   PaymentForm, 
   PaymentSelector, 
+  SelectedCoffees, 
+  SelectedCoffeesSection, 
   Title 
 } from "./styles";
 
@@ -71,34 +74,35 @@ export function Checkout() {
             </PaymentForm>
           </section>
 
-        <section>
+        <SelectedCoffeesSection>
           <Title>Cafés seleciondos</Title>
-          <div>
+          <SelectedCoffees>
             <ul>
               <li>
                 <img src={americano} alt="asd" />
-                <div>
+                <span>
                   <h4>Americano</h4>
-                  <div>Botao - e + | botao remover</div>
-
-                </div>
+                  <ButtonsContainer>
+                    <Counter />
+                    <RemoveButton />
+                  </ButtonsContainer>
+                </span>
+                <p>R$ 9,90</p>      
               </li>
               <li>
                 <img src={americano} alt="asd" />
-                <div>
+                <span>
                   <h4>Americano</h4>
-                  <div>
+                  <ButtonsContainer>
                     <Counter />
                     <RemoveButton />
-                  </div>
-
-                </div>
+                  </ButtonsContainer>
+                </span>
+                <p>R$ 9,90</p>      
               </li>
             </ul>
-          </div>
-
-
-        </section>
+          </SelectedCoffees>
+        </SelectedCoffeesSection>
 
       </FormContainer>
     </CheckoutContainer>

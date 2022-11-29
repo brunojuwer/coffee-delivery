@@ -10,6 +10,7 @@ export const FormContainer = styled.div`
   margin-top: 8rem;
   display: flex;
   justify-content: space-between;
+  gap: 5px;
 `
 
 export const Title = styled.h3`
@@ -158,8 +159,55 @@ export const PaymentSelector = styled.div`
     input[type="radio"] {
       display:none;
     }
-}
-    
-
-
+  }
 `
+
+export const SelectedCoffeesSection = styled.section`
+  max-width: 28rem;
+  width: 100%;
+`
+
+export const SelectedCoffees = styled.div`
+  margin-top: 1rem;
+  border-radius: 5px 40px 5px 40px;
+  background: ${props => props.theme["base-card"]};
+  padding: 2.5rem;
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    li {
+      display: grid;
+      grid-template-columns: 15% 70% 15%;
+      border-bottom: 1px solid ${props => props.theme["base-button"]};
+      padding: 1rem 0 2rem 0;
+      gap: 10px;
+
+      img {
+        width: 4rem;
+        height: 4rem;
+      }
+
+      span {
+        margin-left: 1rem;
+        h4 {
+          font-weight: 400;
+          font-size: 1.25rem;
+          color: ${props => props.theme["base-subtitle"]};
+        }
+      }
+    }
+
+  }
+`
+export const ButtonsContainer = styled.div`
+  max-width: 10.6875rem;
+  width: 100%;
+  margin-top: 5px;
+  display: flex;
+  gap: 10px;
+`
+
