@@ -11,7 +11,8 @@ import {
   PaymentSelector, 
   SelectedCoffees, 
   SelectedCoffeesSection, 
-  Title 
+  Title, 
+  TotalValue
 } from "./styles";
 
 import { Counter } from "../Buttons/Counter";
@@ -101,9 +102,29 @@ export function Checkout() {
                 <p>R$ 9,90</p>      
               </li>
             </ul>
+            <TotalValue>
+              <div>
+                <p>Total de itens</p>
+                <p>R$ 29,70</p>
+              </div>
+              <div>
+                <p>Entrega</p>
+                <p>R$ 3.50</p>
+              </div>
+              <div>
+                <h3>Total</h3>
+                <h3>R$ 33,20</h3>
+              </div>
+              <button>
+                CONFIRMAR PEDIDO
+              </button>
+            </TotalValue>
           </SelectedCoffees>
+
+           
         </SelectedCoffeesSection>
 
+        
       </FormContainer>
     </CheckoutContainer>
   )

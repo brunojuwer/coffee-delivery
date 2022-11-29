@@ -211,3 +211,30 @@ export const ButtonsContainer = styled.div`
   gap: 10px;
 `
 
+export const TotalValue = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+
+    h3 {
+      font-size: 1.25rem ;
+      color: ${props => props.theme["base-subtitle"]};
+    }
+  }
+
+  button {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background: ${props => props.theme["yellow"]};
+    color: ${props => props.theme["white"]};
+    font-weight: bold;
+    font-size: 0.875rem;
+  }
+`
