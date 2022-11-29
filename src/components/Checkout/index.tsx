@@ -1,46 +1,75 @@
-import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
-import { CheckoutContainer } from "./styles";
+import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } 
+  from "phosphor-react";
+
+import { 
+  CheckoutContainer, 
+  FormContainer, 
+  InputContainer, 
+  InputSection, 
+  PaymentForm, 
+  PaymentSelector, 
+  Title 
+} from "./styles";
+
 import americano from '../../assets/coffee/americano.svg'
+import { SyntheticEvent } from "react";
 
 
 export function Checkout() {
+
   return (
     <CheckoutContainer>
-      <h3>Complete seu pedido</h3>
-      <div>
-        <section>
-          <div>
-            <i><MapPinLine size={22} weight="regular" /></i>
-            <h4>Endereço de Entrega</h4>
-          </div>
-          <p>Informe o endereço onde deseja receber o pedido</p>
-
-          <div>
-            <input type="text" placeholder="CEP" />
-            <input type="text" placeholder="Rua" />
-            <input type="number" placeholder="Número"/>
-            <input type="text" placeholder="Complemento"/>
-            <input type="text" placeholder="Bairro"/>
-            <input type="text" placeholder="Cidade"/>
-            <input type="text" placeholder="UF"/>
-          </div>
-
+      <FormContainer>
           <section>
-            <div>
-              <i><CurrencyDollar size={22} weight="regular" /></i>
-              <h4>Endereço de Entrega</h4>
-            </div>
-            <p>Informe o endereço onde deseja receber o pedido</p>
-            <div>
-              <span><CreditCard size={22} /> CARTÃO DE CRÉDITO</span>
-              <span><Bank size={22} /> CARTÃO DE DÉBITO</span>
-              <span><Money size={22} /> DINHEIRO</span>
-            </div>
+            <Title>Complete seu pedido</Title>
+            <InputSection>
+              <div>
+                <i><MapPinLine size={22} weight="regular"/></i>
+                <h4>Endereço de Entrega</h4>
+                <p></p>
+                <p>Informe o endereço onde deseja receber o pedido</p>
+              </div>
+        
+              <InputContainer>
+                <input id="cep" type="text" placeholder="CEP" />
+                <input id="rua" type="text" placeholder="Rua" />
+                <input id="numero" type="number" placeholder="Número"/>
+                <input id="complemento" type="text" placeholder="Complemento"/>
+                <input id="bairro" type="text" placeholder="Bairro"/>
+                <input id="cidade" type="text" placeholder="Cidade"/>
+                <input id="uf" type="text" placeholder="UF"/>
+              </InputContainer>
+            </InputSection>
+
+            <PaymentForm>
+              <div>
+                <i><CurrencyDollar size={22} weight="regular" /></i>
+                <h4>Endereço de Entrega</h4>
+                <p></p>
+                <p>Informe o endereço onde deseja receber o pedido</p>
+              </div>
+              <PaymentSelector>
+                <label htmlFor="debit">
+                  <input type="radio" name="payment" id="debit" />
+                  <i><CreditCard size={16} /></i> 
+                  CARTÃO DE CRÉDITO
+                </label>
+                <label htmlFor="credit">
+                  <input type="radio" name="payment" id="credit" />
+                  <i><Bank size={16} /></i> 
+                  CARTÃO DE DÉBITO
+                </label>
+                <label htmlFor="money">
+                  <input type="radio" name="payment" id="money" />
+                  <i><Money size={16} /></i>
+                  DINHEIRO
+                </label>
+              </PaymentSelector>
+            </PaymentForm>
           </section>
-        </section>
 
         <section>
-          <h3>Cafés seleciondos</h3>
+          <Title>Cafés seleciondos</Title>
           <div>
             <ul>
               <li>
@@ -62,10 +91,10 @@ export function Checkout() {
             </ul>
           </div>
 
-          
+
         </section>
 
-      </div>
+      </FormContainer>
     </CheckoutContainer>
   )
 }

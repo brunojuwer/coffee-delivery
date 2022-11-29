@@ -5,5 +5,4 @@ export const LayoutContainer = styled.div`
   width: 100%;
   margin: 0 auto;
   box-shadow: inset 0px 0px 123px -88px #B57BD1
-
 `
