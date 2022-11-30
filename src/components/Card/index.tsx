@@ -4,6 +4,7 @@ import { ShoppingCartSimple } from "phosphor-react";
 import { Counter } from "../Buttons/Counter";
 
 export function Card() {
+
   return (
     <CardsWrapper>
       {cards.map(card => (
