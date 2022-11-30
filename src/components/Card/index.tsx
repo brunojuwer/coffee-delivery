@@ -19,7 +19,7 @@ export function Card() {
             <span>R$ <strong>{card.price.toFixed(2)}</strong></span>
             <AmountContainer> 
               <Counter />
-              <div>
+              <div> 
                 <ShoppingCartSimple size={22} weight="fill" color="#FFF"/>
               </div>
             </AmountContainer>

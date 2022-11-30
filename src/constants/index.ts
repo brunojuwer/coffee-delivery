@@ -23,7 +23,8 @@ export const cards = [
     title: "Expresso Tradicional",
     content:
       "O tradicional café feito com água quente e grãos moidos",
-    price: 9.90
+    price: 9.90,
+    amount: 1
   },
   {
     id: "expressoAmericano",
@@ -32,7 +33,8 @@ export const cards = [
     title: "Expresso Americano",
     content:
       "Expresso diluído, menos intenso que o tradicional",
-    price: 9.90
+    price: 9.90,
+    amount: 1
   },
   {
     id: "expressoCremoso",
@@ -41,7 +43,8 @@ export const cards = [
     title: "Expresso Cremoso",
     content:
       "Café expresso tradicional com espuma cremosa",
-    price: 9.90
+    price: 9.90,
+    amount: 1
   },
   {
     id: "expressoGelado",
@@ -50,7 +53,8 @@ export const cards = [
     title: "Expresso Gelado",
     content:
       "Bebida preparada com café expresso e cubos de gelo",
-    price: 9.90
+    price: 9.90,
+    amount: 1
   },
   {
     id: "cafeComLeite",
@@ -59,7 +63,8 @@ export const cards = [
     title: "Café com Leite",
     content:
       "Meio a meio de expresso tradicional com leite vaporizado",
-    price: 9.90
+    price: 9.90,
+    amount: 1
   },
   {
     id: "latte",
@@ -68,7 +73,8 @@ export const cards = [
     title: "Latte",
     content:
       "Uma dose de café expresso com o dobro de leite e espuma cremosa",
-    price: 9.90
+    price: 9.90,
+    amount: 1
   },
   {
     id: "capuccino",
@@ -77,7 +83,8 @@ export const cards = [
     title: "Capuccino",
     content:
       "Bebida com canela feita de doses iguais de café, leite e espuma",
-    price: 9.90
+    price: 9.90,
+    amount: 1
   },
   {
     id: "macchiato",
@@ -86,7 +93,8 @@ export const cards = [
     title: "Macchiato",
     content:
       "Café expresso misturado com um pouco de leite quente e espuma",
-    price: 9.90
+    price: 9.90,
+    amount: 1
   },
   {
     id: "mochaccino",
@@ -95,7 +103,8 @@ export const cards = [
     title: "Mochaccino",
     content:
       "Café expresso com calda de chocolate, pouco leite e espuma",
-    price: 9.90
+    price: 9.90,
+    amount: 1
   },
   {
     id: "chocolateQuente",
@@ -104,7 +113,8 @@ export const cards = [
     title: "Chocolate Quente",
     content:
       "Bebida feita com chocolate dissolvido no leite quente e café",
-    price: 9.99
+    price: 9.99,
+    amount: 1
   },
   {
     id: "cubano",
@@ -113,7 +123,8 @@ export const cards = [
     title: "Cubano",
     content:
       "Drink gelado de café expresso com rum, creme de leite e hortelã",
-    price: 9.99
+    price: 9.99,
+    amount: 1
   },
   {
     id: "havaiano",
@@ -122,7 +133,8 @@ export const cards = [
     title: "Havaiano",
     content:
       "Bebida adocicada preparada com café e leite de coco",
-    price: 9.99
+    price: 9.99,
+    amount: 1
   },
   {
     id: "arabe",
@@ -131,7 +143,8 @@ export const cards = [
     title: "Árabe",
     content:
       "Bebida preparada com grãos de café árabe e especiarias",
-    price: 9.99
+    price: 9.99,
+    amount: 1
   },
   {
     id: "irlandes",
@@ -140,6 +153,7 @@ export const cards = [
     title: "Irlândes",
     content:
       "Bebida a base de café, uísque irlandês, açúcar e chantilly",
-    price: 9.99
+    price: 9.99,
+    amount: 1
   },
 ]
