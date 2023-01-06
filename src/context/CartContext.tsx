@@ -14,7 +14,7 @@ export interface Coffee {
   tags: string[]
   content:string,
   price: number,
-  amount?: number | undefined
+  amount: number
 }
 
 interface CartProducts {

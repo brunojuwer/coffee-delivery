@@ -1,4 +1,3 @@
-// import americano from '../assets/coffee/americano.svg' 
 import cafeGelado from '../assets/coffee/cafeGelado.svg'
 import americano from '../assets/coffee/americano.svg' 
 import arabe from '../assets/coffee/arabe.svg' 

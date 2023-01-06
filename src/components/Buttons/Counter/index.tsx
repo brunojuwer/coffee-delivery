@@ -1,14 +1,12 @@
 import { Minus, Plus } from "phosphor-react";
-import { useContext, useEffect } from "react";
+import { useState } from "react";
 import { CounterContainer } from "./styles";
-import { CartContext } from "../../../context/CartContext";
 
 
 export function Counter() {
-  const {changeAmountOfCoffees, coffees} = useContext(CartContext)
+  const [amount, setAmount] = useState(1)
 
- 
-  console.log(coffees)
+
 
   return (
     <CounterContainer>
@@ -16,15 +14,15 @@ export function Counter() {
         <Minus 
           size={16} 
           weight="bold" 
-          onClick={() => changeAmountOfCoffees('DECREASE')}
+          onClick={() => setAmount(state => state - 1)}
         />
       </button>
-      <span>{}</span>
+      <span>{amount}</span>
       <button >
         <Plus 
           size={16} 
           weight="bold" 
-          onClick={() => changeAmountOfCoffees('INCREASE')}
+          onClick={() => setAmount(state => state + 1)}
         />
       </button>
     </CounterContainer>

@@ -77,6 +77,27 @@ export const InputContainer = styled.div`
   #complemento {
     grid-column-start: 2;
     grid-column-end: 5;
+    position: relative;
+
+    input {
+      width: 100%;
+    }
+
+    input:not(::content) p {
+      display: none;
+    }
+
+    p {
+      position: absolute;
+      top: 12px;
+      right: 8px;
+      font-size: 0.857rem;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
+      font-style: italic;
+      color: ${props => props.theme["base-label"]}
+
+    }
   }
 
   #bairro {

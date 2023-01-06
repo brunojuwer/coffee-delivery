@@ -42,7 +42,10 @@ export function Checkout() {
                 <input id="cep" type="text" placeholder="CEP" />
                 <input id="rua" type="text" placeholder="Rua" />
                 <input id="numero" type="number" placeholder="Número"/>
-                <input id="complemento" type="text" placeholder="Complemento"/>
+                <label htmlFor="complemente" id="complemento">
+                  <input type="text" placeholder="Complemento"/>
+                  <p>Opcional</p>
+                </label>
                 <input id="bairro" type="text" placeholder="Bairro"/>
                 <input id="cidade" type="text" placeholder="Cidade"/>
                 <input id="uf" type="text" placeholder="UF"/>
