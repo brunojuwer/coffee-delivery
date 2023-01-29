@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CounterContainer = styled.div`
-    height: 2rem;
+    height: 100%;
     display: flex;
     align-items: center;
     background: ${props => props.theme["base-button"]};
@@ -23,7 +23,6 @@ export const CounterContainer = styled.div`
       color: ${props => props.theme["purple-dark"]};
       background: ${props => props.theme["base-button"]};
       padding: 0 0.2rem;
-      font-size: 1.25rem;
 
       :hover {
         color: ${props => props.theme["purple"]};

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CardsWrapper = styled.div`
+export const CardsWrapper = styled.form`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-row-gap: 45px;
@@ -48,13 +48,14 @@ export const CardContainer = styled.div`
     line-height: 1.3;
     font-size: 0.875rem;
     color: ${props => props.theme["base-label"]};
+    margin-bottom: 1rem;
+
   }
 
   div {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-top: 1rem;
     max-width: 13rem;
     width: 100%;
 
@@ -90,16 +91,20 @@ export const TagContainer = styled.span`
 export const AmountContainer = styled.span`
   display: flex;
   align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+`
 
-  div:last-child {
-    margin-left: 8px;
-    padding: 0.5rem;
-    border-radius: 8px;
-    background: ${props => props.theme["purple-dark"]};
-    cursor: pointer;
+export const ButtonAddCart = styled.button`
+  height: 100%;
+  border: unset;
+  margin-left: 8px;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background: ${props => props.theme["purple-dark"]};
+  cursor: pointer;
 
-    :hover {
-      background: ${props => props.theme["purple"]};
-    }
+  :hover {
+    background: ${props => props.theme["purple"]};
   }
 `
