@@ -14,7 +14,6 @@ export function Counter({id}: CardId) {
 
 
   function handleAddToCart(id: string) {
-    console.log(id)
     addProductsToCart(id);
   }
 
@@ -34,32 +33,35 @@ export function Counter({id}: CardId) {
   }
 
   return (
-    <CounterContainer>
-      <button >
-        <Minus 
-          size={16} 
-          weight="bold" 
-          onClick={() => changeAmountOfCoffees("DECREASE")}
+    <>
+      <CounterContainer>
+        <button >
+          <Minus 
+            size={16} 
+            weight="bold" 
+            onClick={() => changeAmountOfCoffees("DECREASE")}
+            />
+            
+        </button>
+        <span id="amount">
+          {cardAmount}
+        </span>
+        <button >
+          <Plus 
+            size={16} 
+            weight="bold" 
+            onClick={() => changeAmountOfCoffees("INCREASE")}
           />
-          
-      </button>
-      <span id="amount">
-        {cardAmount}
-      </span>
-      <button >
-        <Plus 
-          size={16} 
-          weight="bold" 
-          onClick={() => changeAmountOfCoffees("INCREASE")}
-        />
-      </button>
-               
-      <ButtonAddCart
-        type="button"
-        onClick={() => handleAddToCart(id)}
-      />
-      <ShoppingCartSimple size={22} weight="fill" color="#000"/>
+        </button>
+        </CounterContainer>
+                
+        <ButtonAddCart
+          type="button"
+          onClick={() => handleAddToCart(id)}
+        >
+          <ShoppingCartSimple size={22} weight="fill" color="#FFF"/>
+        </ButtonAddCart>
 
-    </CounterContainer>
+    </>
   )
 }
