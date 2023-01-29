@@ -1,15 +1,12 @@
 import { createContext, ReactNode, useState } from "react";
-import { cards } from '../constants/';
 
 interface CartContextType {
-  addProductsToCart: (id: string) => void;
+  addProductsToCart: (id: string, amount: number) => void;
 }
 
 export interface Order {
   id: string,
-  name?: string,
-  price?: number,
-  amount?: number
+  amount: number
 }
 
 
@@ -20,16 +17,18 @@ interface CycleContextProviderProps {
 export const CartContext = createContext({} as CartContextType)
 
 export function CartContextProvider({children}: CycleContextProviderProps) {
-  const productsCart = useState<Order[]>([]);
+  const [productsCart, setProductsCart] = useState<Order[]>([]);
 
-  function addProductsToCart(id: string) {
-      const card = cards.find(card=> card.id === id);
-    
-    console.log(card)
-    const copyProdutcsCart = [...productsCart];
+  function addProductsToCart(id: string, amount: number) {
+    const product: Order = {
+       id,
+       amount
+    }
 
+    setProductsCart((state) => [...state, product])
   }
-
+  
+  console.log(productsCart)
   return (
     <CartContext.Provider value={{addProductsToCart}}>
       {children}

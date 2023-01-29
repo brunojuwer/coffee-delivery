@@ -13,8 +13,8 @@ export function Counter({id}: CardId) {
   const {addProductsToCart} = useContext(CartContext);
 
 
-  function handleAddToCart(id: string) {
-    addProductsToCart(id);
+  function handleAddToCart(amount: number, id: string) {
+    addProductsToCart(id, amount);
   }
 
   function changeAmountOfCoffees(action: string,) {
@@ -57,7 +57,7 @@ export function Counter({id}: CardId) {
                 
         <ButtonAddCart
           type="button"
-          onClick={() => handleAddToCart(id)}
+          onClick={(e) => handleAddToCart(cardAmount, id)}
         >
           <ShoppingCartSimple size={22} weight="fill" color="#FFF"/>
         </ButtonAddCart>
