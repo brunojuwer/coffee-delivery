@@ -5,11 +5,13 @@ import { CounterContainer, ButtonAddCart } from "./styles";
 
 interface CardId {
   id: string
+  isCheckoutPage: boolean,
+  amountItens?: number
 }
 
-export function Counter({id}: CardId) {
+export function Counter({id, isCheckoutPage, amountItens = 1}: CardId) {
 
-  const [cardAmount, setCardAmount] = useState(0);
+  const [cardAmount, setCardAmount] = useState(amountItens);
   const {addProductsToCart} = useContext(CartContext);
 
 
@@ -54,13 +56,16 @@ export function Counter({id}: CardId) {
           />
         </button>
         </CounterContainer>
-                
-        <ButtonAddCart
+        {
+          !isCheckoutPage ? <ButtonAddCart
           type="button"
           onClick={(e) => handleAddToCart(cardAmount, id)}
         >
           <ShoppingCartSimple size={22} weight="fill" color="#FFF"/>
         </ButtonAddCart>
+        : null
+        }
+        
 
     </>
   )

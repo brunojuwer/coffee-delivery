@@ -17,21 +17,22 @@ import {
 import { Counter } from "../Buttons/Counter";
 import { RemoveButton } from "../Buttons/RemoveButton";
 
-import { useContext } from "react";
+import { FormEvent, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
-import { cards } from "../../constants";
 
 
 export function Checkout() {
 
   const {addProductsToCart, productsCart} = useContext(CartContext);
 
-  
+  function handleForm(e: FormEvent){
+    e.preventDefault()
+  }
 
   return (
-    <CheckoutContainer>
-      <FormContainer>
+    <CheckoutContainer onSubmit={(e) => handleForm(e)}> 
+      <FormContainer >
           <section>
             <Title>Complete seu pedido</Title>
             <InputSection>
@@ -56,7 +57,7 @@ export function Checkout() {
               </InputContainer>
             </InputSection>
 
-            <PaymentForm>
+            <PaymentForm >
               <div>
                 <i><CurrencyDollar size={22} weight="regular" /></i>
                 <h4>Endereço de Entrega</h4>
@@ -89,22 +90,26 @@ export function Checkout() {
             <ul>
               {productsCart.map(product => (
               <li key={product.id}>
-                <img src={product.id} alt="asd" />
+                <img src={product.icon} alt="asd" />
                 <div>
-                  <h4>Americano</h4>
+                  <h4>{product.title}</h4>
                   <ButtonsContainer>
-                    <Counter id={product.id}/>
+                    <Counter 
+                      id={product.id} 
+                      isCheckoutPage={true}
+                      amountItens={product.amount}
+                      />
                     <RemoveButton />
                   </ButtonsContainer>
                 </div>
-                <p>R$ 9,90</p>      
+                <p>R$ {(product.price * product.amount).toFixed(2)}</p> 
               </li>
               ))}
             </ul>
             <TotalValue>
               <div>
                 <p>Total de itens</p>
-                <p>R$ 29,70</p>
+                <p>{productsCart.reduce((acc, product) => product.price + acc, 0).toFixed(2)}</p>
               </div>
               <div>
                 <p>Entrega</p>
@@ -121,11 +126,7 @@ export function Checkout() {
               </NavLink>
             </TotalValue>
           </SelectedCoffees>
-
-           
         </SelectedCoffeesSection>
-
-        
       </FormContainer>
     </CheckoutContainer>
   )
