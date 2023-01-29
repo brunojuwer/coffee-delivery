@@ -1,6 +1,7 @@
-import { Minus, Plus } from "phosphor-react";
-import { useState } from "react";
-import { CounterContainer } from "./styles";
+import { Minus, Plus, ShoppingCartSimple } from "phosphor-react";
+import { useContext, useState } from "react";
+import { CartContext } from "../../../context/CartContext";
+import { CounterContainer, ButtonAddCart } from "./styles";
 
 interface CardId {
   id: string
@@ -9,6 +10,12 @@ interface CardId {
 export function Counter({id}: CardId) {
 
   const [cardAmount, setCardAmount] = useState(0);
+  const {addProductsToCart} = useContext(CartContext);
+
+
+  function handleAddToCart(id: string) {
+    addProductsToCart(id);
+  }
 
   function changeAmountOfCoffees(action: string,) {
     switch (action) {
@@ -26,26 +33,35 @@ export function Counter({id}: CardId) {
   }
 
   return (
-    <CounterContainer>
-      <button >
-        <Minus 
-          size={16} 
-          weight="bold" 
-          onClick={() => changeAmountOfCoffees("DECREASE")}
+    <>
+      <CounterContainer>
+        <button >
+          <Minus 
+            size={16} 
+            weight="bold" 
+            onClick={() => changeAmountOfCoffees("DECREASE")}
+            />
+            
+        </button>
+        <span id="amount">
+          {cardAmount}
+        </span>
+        <button >
+          <Plus 
+            size={16} 
+            weight="bold" 
+            onClick={() => changeAmountOfCoffees("INCREASE")}
           />
-          
-      </button>
-      <span id="amount">
-        {cardAmount}
-        {id}
-      </span>
-      <button >
-        <Plus 
-          size={16} 
-          weight="bold" 
-          onClick={() => changeAmountOfCoffees("INCREASE")}
-        />
-      </button>
-    </CounterContainer>
+        </button>
+        </CounterContainer>
+                
+        <ButtonAddCart
+          type="button"
+          onClick={() => handleAddToCart(id)}
+        >
+          <ShoppingCartSimple size={22} weight="fill" color="#FFF"/>
+        </ButtonAddCart>
+
+    </>
   )
 }
