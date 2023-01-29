@@ -24,8 +24,11 @@ import { CartContext } from "../../context/CartContext";
 
 export function Checkout() {
 
-  const {addProductsToCart, productsCart} = useContext(CartContext);
-
+  const {productsCart} = useContext(CartContext);
+  
+  const totalPriceItems = productsCart
+    .reduce((acc, product) => product.price + acc, 0)
+  
   function handleForm(e: FormEvent){
     e.preventDefault()
   }
@@ -99,17 +102,17 @@ export function Checkout() {
                       isCheckoutPage={true}
                       amountItens={product.amount}
                       />
-                    <RemoveButton />
+                    <RemoveButton id={product.id}/>
                   </ButtonsContainer>
                 </div>
-                <p>R$ {(product.price * product.amount).toFixed(2)}</p> 
+                <p>R$ {(product.price).toFixed(2)}</p> 
               </li>
               ))}
             </ul>
             <TotalValue>
               <div>
                 <p>Total de itens</p>
-                <p>{productsCart.reduce((acc, product) => product.price + acc, 0).toFixed(2)}</p>
+                <p>{totalPriceItems.toFixed(2)}</p>
               </div>
               <div>
                 <p>Entrega</p>
@@ -117,7 +120,7 @@ export function Checkout() {
               </div>
               <div>
                 <h3>Total</h3>
-                <h3>R$ 33,20</h3>
+                <h3>R$ {(totalPriceItems + 3.50).toFixed(2)}</h3>
               </div>
               <NavLink to={"/success"}>
                 <button>

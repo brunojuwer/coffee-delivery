@@ -2,6 +2,7 @@ import { createContext, ReactNode, useState } from "react";
 import { cards } from "../constants";
 
 interface CartContextType {
+  handleRemoveProduct: (id: string) => void;
   addProductsToCart: (id: string, amount: number) => void;
   productsCart: Order[]
 }
@@ -36,10 +37,14 @@ export function CartContextProvider({children}: CycleContextProviderProps) {
       setProductsCart((state) => [...state, order])
     }
   }
+
+  function handleRemoveProduct(id: string) {
+    const productsCartFiltered = productsCart.filter(product => product.id !== id);
+    setProductsCart(productsCartFiltered);
+  }
   
-  console.log(productsCart)
   return (
-    <CartContext.Provider value={{addProductsToCart, productsCart}}>
+    <CartContext.Provider value={{addProductsToCart, productsCart, handleRemoveProduct}}>
       {children}
     </CartContext.Provider>
   )

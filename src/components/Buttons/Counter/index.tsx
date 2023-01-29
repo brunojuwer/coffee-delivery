@@ -25,7 +25,7 @@ export function Counter({id, isCheckoutPage, amountItens = 1}: CardId) {
         setCardAmount(cardAmount => cardAmount + 1)
         break;
       case 'DECREASE':
-        if(cardAmount !== 0){
+        if(cardAmount !== 1){
           setCardAmount(cardAmount => cardAmount - 1)
         }
         break;
@@ -65,8 +65,6 @@ export function Counter({id, isCheckoutPage, amountItens = 1}: CardId) {
         </ButtonAddCart>
         : null
         }
-        
-
     </>
   )
 }
