@@ -1,6 +1,7 @@
-import { Minus, Plus } from "phosphor-react";
-import { useState } from "react";
-import { CounterContainer } from "./styles";
+import { Minus, Plus, ShoppingCartSimple } from "phosphor-react";
+import { useContext, useState } from "react";
+import { CartContext } from "../../../context/CartContext";
+import { CounterContainer, ButtonAddCart } from "./styles";
 
 interface CardId {
   id: string
@@ -9,6 +10,13 @@ interface CardId {
 export function Counter({id}: CardId) {
 
   const [cardAmount, setCardAmount] = useState(0);
+  const {addProductsToCart} = useContext(CartContext);
+
+
+  function handleAddToCart(id: string) {
+    console.log(id)
+    addProductsToCart(id);
+  }
 
   function changeAmountOfCoffees(action: string,) {
     switch (action) {
@@ -37,7 +45,6 @@ export function Counter({id}: CardId) {
       </button>
       <span id="amount">
         {cardAmount}
-        {id}
       </span>
       <button >
         <Plus 
@@ -46,6 +53,13 @@ export function Counter({id}: CardId) {
           onClick={() => changeAmountOfCoffees("INCREASE")}
         />
       </button>
+               
+      <ButtonAddCart
+        type="button"
+        onClick={() => handleAddToCart(id)}
+      />
+      <ShoppingCartSimple size={22} weight="fill" color="#000"/>
+
     </CounterContainer>
   )
 }

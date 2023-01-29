@@ -1,22 +1,14 @@
-import { ShoppingCartSimple } from "phosphor-react";
-import { FormEvent, useContext } from "react";
+import { FormEvent } from "react";
 import { cards } from '../../constants/';
-import { CartContext } from "../../context/CartContext";
 import { Counter } from "../Buttons/Counter";
-import { AmountContainer, ButtonAddCart, CardContainer, CardsWrapper, TagContainer } from "./styles";
+import { AmountContainer, CardContainer, CardsWrapper, TagContainer } from "./styles";
 
 
 export function Card() {
 
-  const {addProductsToCart} = useContext(CartContext);
 
   function preventFormReload(event: FormEvent) {
     event.preventDefault();
-  }
-
-  function handleAddToCart(id: string) {
-    console.log(id)
-    addProductsToCart(id);
   }
 
   return (
@@ -33,12 +25,6 @@ export function Card() {
             <span>R$ <strong>{card.price.toFixed(2)}</strong></span>
             <AmountContainer>
               <Counter id={card.id}/>
-              <ButtonAddCart
-                type="button"
-                onClick={() => handleAddToCart(card.id)}
-              > 
-                <ShoppingCartSimple size={22} weight="fill" color="#FFF"/>
-              </ButtonAddCart>
             </AmountContainer>
           </div> 
         </CardContainer>

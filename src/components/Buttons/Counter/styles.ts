@@ -29,3 +29,18 @@ export const CounterContainer = styled.div`
       }
     }
 `
+
+export const ButtonAddCart = styled.button`
+
+  height: 100%;
+  border: unset;
+  margin-left: 8px;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background: ${props => props.theme["purple-dark"]};
+  cursor: pointer;
+
+  :hover {
+    background: ${props => props.theme["purple"]};
+  }
+`
