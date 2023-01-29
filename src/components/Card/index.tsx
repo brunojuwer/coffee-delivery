@@ -24,7 +24,10 @@ export function Card() {
           <div>
             <span>R$ <strong>{card.price.toFixed(2)}</strong></span>
             <AmountContainer>
-              <Counter id={card.id}/>
+              <Counter 
+                id={card.id} 
+                isCheckoutPage={false}
+                />
             </AmountContainer>
           </div> 
         </CardContainer>

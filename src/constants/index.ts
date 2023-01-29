@@ -22,7 +22,7 @@ export const cards = [
     title: "Expresso Tradicional",
     content:
       "O tradicional café feito com água quente e grãos moidos",
-    price: 9.90,
+    price: 9.99,
     amount: 0
   },
   {
@@ -32,7 +32,7 @@ export const cards = [
     title: "Expresso Americano",
     content:
       "Expresso diluído, menos intenso que o tradicional",
-    price: 9.90,
+    price: 19.90,
     amount: 0
   },
   {
@@ -42,7 +42,7 @@ export const cards = [
     title: "Expresso Cremoso",
     content:
       "Café expresso tradicional com espuma cremosa",
-    price: 9.90,
+    price: 15.30,
     amount: 0
   },
   {
