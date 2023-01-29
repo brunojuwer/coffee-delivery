@@ -2,6 +2,7 @@ import { createContext, ReactNode, useState } from "react";
 
 interface CartContextType {
   addProductsToCart: (id: string, amount: number) => void;
+  productsCart: Order[]
 }
 
 export interface Order {
@@ -30,7 +31,7 @@ export function CartContextProvider({children}: CycleContextProviderProps) {
   
   console.log(productsCart)
   return (
-    <CartContext.Provider value={{addProductsToCart}}>
+    <CartContext.Provider value={{addProductsToCart, productsCart}}>
       {children}
     </CartContext.Provider>
   )

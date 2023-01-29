@@ -1,29 +1,33 @@
-import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } 
-  from "phosphor-react";
+import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
 
-import { 
+import {
   ButtonsContainer,
-  CheckoutContainer, 
-  FormContainer, 
-  InputContainer, 
-  InputSection, 
-  PaymentForm, 
-  PaymentSelector, 
-  SelectedCoffees, 
-  SelectedCoffeesSection, 
-  Title, 
+  CheckoutContainer,
+  FormContainer,
+  InputContainer,
+  InputSection,
+  PaymentForm,
+  PaymentSelector,
+  SelectedCoffees,
+  SelectedCoffeesSection,
+  Title,
   TotalValue
 } from "./styles";
 
 import { Counter } from "../Buttons/Counter";
 import { RemoveButton } from "../Buttons/RemoveButton";
 
-import americano from '../../assets/coffee/americano.svg'
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-
+import { CartContext } from "../../context/CartContext";
+import { cards } from "../../constants";
 
 
 export function Checkout() {
+
+  const {addProductsToCart, productsCart} = useContext(CartContext);
+
+  
 
   return (
     <CheckoutContainer>
@@ -83,28 +87,19 @@ export function Checkout() {
           <Title>Cafés seleciondos</Title>
           <SelectedCoffees>
             <ul>
-              <li>
-                <img src={americano} alt="asd" />
+              {productsCart.map(product => (
+              <li key={product.id}>
+                <img src={product.id} alt="asd" />
                 <div>
                   <h4>Americano</h4>
                   <ButtonsContainer>
-                    <Counter />
+                    <Counter id={product.id}/>
                     <RemoveButton />
                   </ButtonsContainer>
                 </div>
                 <p>R$ 9,90</p>      
               </li>
-              <li>
-                <img src={americano} alt="asd" />
-                <div>
-                  <h4>Americano</h4>
-                  <ButtonsContainer>
-                    <Counter />
-                    <RemoveButton />
-                  </ButtonsContainer>
-                </div>
-                <p>R$ 9,90</p>      
-              </li>
+              ))}
             </ul>
             <TotalValue>
               <div>
