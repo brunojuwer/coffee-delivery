@@ -1,8 +1,12 @@
 import { BorderDiv, IconWrapper, OrderStatus, SuccessContainer } from "./styles";
 import entrega from '../../assets/entrega.svg'
 import { CurrencyDollar, MapPin, Timer } from "phosphor-react";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 export function Success() {
+  const {orderInformation} = useContext(CartContext);
+
   return (
     <SuccessContainer>
       <div className="information-container">
@@ -15,8 +19,8 @@ export function Success() {
                 <MapPin size={16} weight="fill" color="#FFF"/>
               </IconWrapper>
               <span>
-                Entrega em <strong>Rua João Daniel Martinelli, 102 </strong>
-                Farrapos - Porto Alegre, RS
+                Entrega em <strong>{orderInformation.rua}, {orderInformation.numero} </strong> <br />
+                {orderInformation.bairro} - {orderInformation.cidade}, {orderInformation.uf}
               </span>
             </div>
             <div>
@@ -34,7 +38,7 @@ export function Success() {
               </IconWrapper>
               <span>
                 Pagamento na Entrega <br />
-                <strong>Cartão de crédito</strong>
+                <strong>{orderInformation.pagamento}</strong>
               </span>
             </div>
           </OrderStatus>
