@@ -1,6 +1,8 @@
 import { createContext, ReactNode, useState } from "react";
 import { cards } from "../constants";
 import { OrderFormData } from "../components/Checkout";
+import { useNavigate } from "react-router-dom";
+
 
 interface CartContextType {
   handleNewOrder: (data: OrderFormData) => void;
@@ -31,7 +33,7 @@ export const CartContext = createContext({} as CartContextType)
 export function CartContextProvider({children}: ContextProviderProps) {
   const [productsCart, setProductsCart] = useState<Order[]>([]);
   const [orderInformation, setOrderInformation] = useState<OrderFormData>({} as OrderFormData)
-
+  const navigate = useNavigate()
 
   function addProductsToCart(id: string, amount: number) {
 
@@ -56,6 +58,7 @@ export function CartContextProvider({children}: ContextProviderProps) {
   function handleNewOrder(data: OrderFormData){
     setOrderInformation(data)
     setProductsCart([])
+    navigate("/success")
   }
 
   return (

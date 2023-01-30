@@ -13,16 +13,15 @@ import {
   TotalValue
 } from "./styles";
 
+import { CartContext } from "../../context/CartContext";
 import { Counter } from "../Buttons/Counter";
 import { RemoveButton } from "../Buttons/RemoveButton";
-import { CartContext } from "../../context/CartContext";
 
+import { zodResolver } from '@hookform/resolvers/zod';
 import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
-import { NavLink } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import * as zod from 'zod'
+import { useForm } from 'react-hook-form';
+import * as zod from 'zod';
 
 const newOrderFormValidation = zod.object({
   cep: zod.string().max(8).min(8),
@@ -70,9 +69,9 @@ export function Checkout() {
               </div>
         
               <InputContainer>
-                <input id="cep" type="text" placeholder="CEP" {...register('cep')} />
+                <input id="cep" type="text" placeholder="CEP" {...register('cep')} maxLength={8}/>
                 <input id="rua" type="text" placeholder="Rua" {...register('rua')} />
-                <input id="numero" type="number" placeholder="Número" {...register('numero')} />
+                <input id="numero" type="text" placeholder="Número" {...register('numero')} />
                 <label htmlFor="complemento" id="complemento">
                   <input type="text" placeholder="Complemento" maxLength={30} {...register('complemento')} />
                   <p>Opcional</p>
@@ -149,11 +148,9 @@ export function Checkout() {
                 <h3>Total</h3>
                 <h3>R$ {(totalPriceItems + 3.50).toFixed(2)}</h3>
               </div>
-              <NavLink to={"/success"}>
                 <button type="submit" disabled={!productsCart.length}>
                   CONFIRMAR PEDIDO
                 </button>
-              </NavLink>
             </TotalValue>
             {isFormWithErrors ? 
               <MessageFillAllFieldsForm>
