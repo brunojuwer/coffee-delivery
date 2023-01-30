@@ -1,5 +1,3 @@
-import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
-
 import {
   ButtonsContainer,
   CheckoutContainer,
@@ -16,16 +14,18 @@ import {
 
 import { Counter } from "../Buttons/Counter";
 import { RemoveButton } from "../Buttons/RemoveButton";
-
-import { FormEvent, useContext, useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 
+import { Bank, CreditCard, CurrencyDollar, MapPinLine, Money } from "phosphor-react";
+import { NavLink } from "react-router-dom";
+import { FormEvent, useContext, useEffect, useState } from "react";
+import { useForm } from 'react-hook-form'
 
 export function Checkout() {
 
   const {productsCart} = useContext(CartContext);
   const [totalPriceItems, setTotalPriceItems] = useState(0)
+  const { register, handleSubmit } = useForm()
 
   useEffect(() => {
     const total = productsCart
@@ -34,12 +34,12 @@ export function Checkout() {
       setTotalPriceItems(total)
   }, [productsCart])
   
-  function handleForm(e: FormEvent){
-    e.preventDefault()
+  function handleNewOrder(e: any){
+    console.log(e)
   }
 
   return (
-    <CheckoutContainer onSubmit={(e) => handleForm(e)}> 
+    <CheckoutContainer onSubmit={handleSubmit(handleNewOrder)} action=""> 
       <FormContainer >
           <section>
             <Title>Complete seu pedido</Title>
@@ -52,11 +52,11 @@ export function Checkout() {
               </div>
         
               <InputContainer>
-                <input id="cep" type="text" placeholder="CEP" />
-                <input id="rua" type="text" placeholder="Rua" />
+                <input id="cep" type="text" placeholder="CEP" {...register('cep')}/>
+                <input id="rua" type="text" placeholder="Rua" {...register('rua')}/>
                 <input id="numero" type="number" placeholder="Número"/>
                 <label htmlFor="complemente" id="complemento">
-                  <input type="text" placeholder="Complemento"/>
+                  <input type="text" placeholder="Complemento" maxLength={30}/>
                   <p>Opcional</p>
                 </label>
                 <input id="bairro" type="text" placeholder="Bairro"/>
@@ -95,25 +95,29 @@ export function Checkout() {
         <SelectedCoffeesSection>
           <Title>Cafés seleciondos</Title>
           <SelectedCoffees>
-            <ul>
-              {productsCart.map(product => (
-              <li key={product.id}>
-                <img src={product.icon} alt="asd" />
-                <div>
-                  <h4>{product.title}</h4>
-                  <ButtonsContainer>
-                    <Counter 
-                      id={product.id} 
-                      isCheckoutPage={true}
-                      amountItens={product.amount}
-                      />
-                    <RemoveButton id={product.id}/>
-                  </ButtonsContainer>
-                </div>
-                <p>R$ {(product.price).toFixed(2)}</p> 
-              </li>
-              ))}
-            </ul>
+          {
+            !productsCart.length
+              ? <p>Você ainda não adicionou nenhum produto</p>
+              : <ul>
+                  {productsCart.map(product => (
+                    <li key={product.id}>
+                    <img src={product.icon} alt="asd" />
+                    <div>
+                      <h4>{product.title}</h4>
+                      <ButtonsContainer>
+                        <Counter 
+                          id={product.id} 
+                          isCheckoutPage={true}
+                          amountItens={product.amount}                          
+                        />
+                        <RemoveButton id={product.id}/>
+                      </ButtonsContainer>
+                    </div>
+                    <p>R$ {(product.price).toFixed(2)}</p> 
+                  </li>
+                  ))}
+                </ul>
+            }
             <TotalValue>
               <div>
                 <p>Total de itens</p>
@@ -127,7 +131,7 @@ export function Checkout() {
                 <h3>Total</h3>
                 <h3>R$ {(totalPriceItems + 3.50).toFixed(2)}</h3>
               </div>
-              <NavLink to={"/success"}>
+              <NavLink to={"/success"} type="submit" >
                 <button type="submit">
                   CONFIRMAR PEDIDO
                 </button>

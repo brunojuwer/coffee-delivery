@@ -33,8 +33,8 @@ export function Success() {
                 <CurrencyDollar size={16} color="#FFF"/>
               </IconWrapper>
               <span>
-                Previsão de entrega <br />
-                <strong>20 min - 30 min</strong>
+                Pagamento na Entrega <br />
+                <strong>Cartão de crédito</strong>
               </span>
             </div>
           </OrderStatus>

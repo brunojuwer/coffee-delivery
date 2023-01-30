@@ -57,7 +57,7 @@ export const InputContainer = styled.div`
   display: grid;
   margin-top: 2rem;
   gap: 1rem;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto;
   
   #cep {
     grid-column-start: 1;
@@ -66,7 +66,7 @@ export const InputContainer = styled.div`
   
   #rua {
     grid-column-start: 1;
-    grid-column-end: 5;
+    grid-column-end: 6;
   }
 
   #numero {
@@ -76,7 +76,7 @@ export const InputContainer = styled.div`
 
   #complemento {
     grid-column-start: 2;
-    grid-column-end: 5;
+    grid-column-end: 6;
     position: relative;
 
     input {
@@ -107,11 +107,11 @@ export const InputContainer = styled.div`
 
   #cidade {
     grid-column-start: 2;
-    grid-column-end: 4;
+    grid-column-end: 5;
   }
 
   #uf {
-    align-self: end;
+    justify-self: end;
     width: 3.75rem;
   }
 
