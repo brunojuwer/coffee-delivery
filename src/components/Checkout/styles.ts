@@ -265,5 +265,16 @@ export const TotalValue = styled.div`
     &:hover {
       background: ${props => props.theme["yellow-dark"]};
     }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.4;
+    }
   }
+`
+
+export const MessageFillAllFieldsForm = styled.p`
+  padding-top: 10px;
+  text-align: center;
+  color: red;
 `
