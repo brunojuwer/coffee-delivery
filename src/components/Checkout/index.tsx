@@ -17,7 +17,7 @@ import {
 import { Counter } from "../Buttons/Counter";
 import { RemoveButton } from "../Buttons/RemoveButton";
 
-import { FormEvent, useContext } from "react";
+import { FormEvent, useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 
@@ -25,9 +25,14 @@ import { CartContext } from "../../context/CartContext";
 export function Checkout() {
 
   const {productsCart} = useContext(CartContext);
+  const [totalPriceItems, setTotalPriceItems] = useState(0)
+
+  useEffect(() => {
+    const total = productsCart
+      .reduce((acc, product) => product.price * product.amount + acc, 0)
   
-  const totalPriceItems = productsCart
-    .reduce((acc, product) => product.price + acc, 0)
+      setTotalPriceItems(total)
+  }, [productsCart])
   
   function handleForm(e: FormEvent){
     e.preventDefault()
@@ -123,7 +128,7 @@ export function Checkout() {
                 <h3>R$ {(totalPriceItems + 3.50).toFixed(2)}</h3>
               </div>
               <NavLink to={"/success"}>
-                <button>
+                <button type="submit">
                   CONFIRMAR PEDIDO
                 </button>
               </NavLink>

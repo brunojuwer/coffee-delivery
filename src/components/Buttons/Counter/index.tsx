@@ -12,21 +12,35 @@ interface CardId {
 export function Counter({id, isCheckoutPage, amountItens = 1}: CardId) {
 
   const [cardAmount, setCardAmount] = useState(amountItens);
-  const {addProductsToCart} = useContext(CartContext);
+  const {addProductsToCart, productsCart, changeState} = useContext(CartContext);
 
 
   function handleAddToCart(amount: number, id: string) {
     addProductsToCart(id, amount);
   }
 
+  function changeInCheckOutPage(id: string, action: string) {
+      if(isCheckoutPage) {
+        const copyProductsCart = [...productsCart];
+        copyProductsCart.forEach(product => {
+          if(product.id === id) {
+            action ? product.amount = cardAmount + 1 : product.amount = cardAmount - 1
+          }
+        })
+        changeState(copyProductsCart)
+      }
+  }
+
   function changeAmountOfCoffees(action: string,) {
     switch (action) {
       case 'INCREASE':
         setCardAmount(cardAmount => cardAmount + 1)
+        changeInCheckOutPage(id, 'INCREASE')
         break;
       case 'DECREASE':
         if(cardAmount !== 1){
           setCardAmount(cardAmount => cardAmount - 1)
+          changeInCheckOutPage(id, "")
         }
         break;
       default:
