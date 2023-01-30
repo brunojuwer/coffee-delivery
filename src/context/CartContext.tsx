@@ -28,7 +28,6 @@ export const CartContext = createContext({} as CartContextType)
 export function CartContextProvider({children}: CycleContextProviderProps) {
   const [productsCart, setProductsCart] = useState<Order[]>([]);
 
-console.log(productsCart)
 
   function addProductsToCart(id: string, amount: number) {
 

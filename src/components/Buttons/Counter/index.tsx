@@ -51,7 +51,7 @@ export function Counter({id, isCheckoutPage, amountItens = 1}: CardId) {
   return (
     <>
       <CounterContainer>
-        <button >
+        <button type="button">
           <Minus 
             size={16} 
             weight="bold" 
@@ -62,7 +62,7 @@ export function Counter({id, isCheckoutPage, amountItens = 1}: CardId) {
         <span id="amount">
           {cardAmount}
         </span>
-        <button >
+        <button type="button">
           <Plus 
             size={16} 
             weight="bold" 
